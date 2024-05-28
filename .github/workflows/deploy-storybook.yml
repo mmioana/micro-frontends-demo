@@ -10,10 +10,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-defaults:
- run:
-  working-directory: ./my-components-library
-
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -36,6 +32,6 @@ jobs:
     - id: build-publish
       uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
       with:
-        install_command: npm ci
-        build_command: npm run build-storybook
+        install_command: (cd './my-components-library' && npm ci)
+        build_command: (cd './my-components-library' && npm run build-storybook)
         path: storybook-static
