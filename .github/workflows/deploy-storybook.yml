@@ -32,4 +32,6 @@ jobs:
     - id: build-publish
       uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
       with:
-        path: my-components-library/storybook-static
+        install_command: cd ./my-components-library && npm ci
+        build_command: cd ./my-components-library && npm run build-storybook
+        path: ./my-components-library/storybook-static
