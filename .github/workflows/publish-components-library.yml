@@ -38,3 +38,7 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          git add .
+          git commit -m "chore: increase package version"
+          git push
