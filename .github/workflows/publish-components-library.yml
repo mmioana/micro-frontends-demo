@@ -3,8 +3,9 @@ name: Publish Components Library to Github Packages
 
 on:
   # Runs on pushes targeting the default branch
-  release:
-    types: [created]
+  push:
+    branches: ["master"]
+    paths: 'my-components-library/**'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:

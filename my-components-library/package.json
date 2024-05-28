@@ -26,6 +26,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "prepublish": "npm version patch",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "rollup:build": "rollup --config",
