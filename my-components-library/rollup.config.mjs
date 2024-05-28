@@ -5,12 +5,15 @@ import dts from "rollup-plugin-dts";
 
 // To handle css files
 import postcss from "rollup-plugin-postcss";
+import tailwindcss from 'tailwindcss';
 
 import terser from '@rollup/plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import image from '@rollup/plugin-image';
 
 import packageJson from "./package.json" assert {type: 'json'};
+
+// import tailwindConfig from './tailwind.config.js';
 
 export default [
     {
@@ -27,6 +30,7 @@ export default [
                 sourcemap: true,
             },
         ],
+        external: ["react", "react-dom"],
         plugins: [
             peerDepsExternal(),
             resolve(),
@@ -38,7 +42,10 @@ export default [
                 tsconfig: "./tsconfig.json",
                 // verbosity: 3,
             }),
-            postcss(),
+            postcss({
+                extensions: ['.css'],
+                plugins: [tailwindcss('./tailwind.config.js')],
+            }),
 
             terser(),
             image()
