@@ -28,6 +28,9 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
       # Setup .npmrc file to publish to GitHub Packages
       - uses: actions/setup-node@v4
         with:
