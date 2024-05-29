@@ -47,8 +47,8 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          echo "First six letters: ${RELEASE_GH_TOKEN::6}"
+          echo "First six letters: ${RELEASE_GH_TOKEN:0:6}"
           git add .
           git commit -m "chore: autopublish"
-          git remote set-url origin https://x-access-token:${{ RELEASE_GH_TOKEN }}@github.com/${{ github.repository }}.git
+          git remote set-url origin https://x-access-token:${{ secrets.RELEASE_GH_TOKEN }}@github.com/${{ github.repository }}.git
           git push -v origin HEAD:master
