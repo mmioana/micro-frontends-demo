@@ -39,6 +39,8 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Print remote URL
+        run: git remote -v
       - name: commit & push changes
         env:
           RELEASE_GH_TOKEN: ${{ secrets.RELEASE_GH_TOKEN }}
