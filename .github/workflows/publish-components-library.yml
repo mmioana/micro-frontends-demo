@@ -50,4 +50,4 @@ jobs:
           git add .
           git commit -m "chore: autopublish"
           git remote set-url origin https://x-access-token:${{ secrets.RELEASE_GH_TOKEN }}@github.com/${{ github.repository }}.git
-          git push -v origin HEAD:main
+          git push -v origin HEAD:master
