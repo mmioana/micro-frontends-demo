@@ -17,7 +17,7 @@ permissions:
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 jobs:
-  build:
+  publish-github-package:
     if: github.event.head_commit.author.name != 'github-actions[bot]'
     runs-on: ubuntu-latest
     defaults:
@@ -42,16 +42,6 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: commit & push changes
-      #   env:
-      #     RELEASE_GH_TOKEN: ${{ secrets.RELEASE_GH_TOKEN }}
-      #   run: |
-      #     git config --global user.name "github-actions[bot]"
-      #     git config --global user.email "github-actions[bot]@users.noreply.github.com"
-      #     git add .
-      #     git commit -m "chore: autopublish"
-      #     git remote set-url origin https://x-access-token:${{ secrets.RELEASE_GH_TOKEN }}@github.com/${{ github.repository }}.git
-      #     git push -v origin HEAD:master
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
