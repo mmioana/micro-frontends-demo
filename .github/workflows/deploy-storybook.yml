@@ -24,6 +24,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: github.event.head_commit.author.name != 'github-actions[bot]'
     environment:
       name: github-pages
       url: ${{ steps.build-publish.outputs.page_url }}
