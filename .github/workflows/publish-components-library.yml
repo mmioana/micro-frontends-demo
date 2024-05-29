@@ -56,3 +56,4 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.RELEASE_GH_TOKEN }}
+          branch: 'master'
