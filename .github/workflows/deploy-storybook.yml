@@ -23,7 +23,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  deploy-storybook:
     if: github.event.head_commit.author.name != 'github-actions[bot]'
     environment:
       name: github-pages
