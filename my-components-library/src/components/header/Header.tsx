@@ -1,7 +1,5 @@
 import React from 'react';
-
-import { Button } from '../button/Button';
-
+import { NavLink } from 'react-router-dom';
 import { Link } from '../../types/Link';
 
 export interface HeaderProps {
@@ -18,9 +16,9 @@ export const Header = ({ brand, links, children }: HeaderProps) => {
             <div className='mr-4'>
 
                 <h1 className="text-3xl text-primary font-bold">
-                    <a href="/" >
+                    <NavLink to="/" >
                         {brand}
-                    </a>
+                    </NavLink>
                 </h1>
 
             </div>
@@ -28,9 +26,9 @@ export const Header = ({ brand, links, children }: HeaderProps) => {
             <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
                 <div className="text-sm lg:flex-grow">
                     {links?.map(link => (
-                        <a href={link.url} key={link.name} className="block mt-4 lg:inline-block lg:mt-0 text-primary hover:text-secondary mr-4">
+                        <NavLink to={link.url} key={link.name} className="block mt-4 lg:inline-block lg:mt-0 text-primary hover:text-secondary mr-4">
                             {link.name}
-                        </a>
+                        </NavLink>
                     ))}
                 </div>
                 { children }

@@ -2,6 +2,9 @@ import type { Preview } from "@storybook/react";
 import { withThemeByClassName } from '@storybook/addon-themes';
 import '../src/index.css';
 
+import { MemoryRouter } from "react-router";
+import React from "react";
+
 const preview: Preview = {
   decorators: [
     withThemeByClassName({
@@ -12,6 +15,7 @@ const preview: Preview = {
       },
       defaultTheme: 'main',
     }),
+    story => <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
   ],
   parameters: {
     controls: {
